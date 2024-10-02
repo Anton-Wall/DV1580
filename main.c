@@ -155,11 +155,6 @@ void list_delete(Node** head, uint16_t data){
         temp = temp->next;
     }
 
-    if (temp == NULL) {
-        printf("Node with data %d not found.\n", data);
-        return;
-    }
-
     prev->next = temp->next;
     mem_free(temp);
 }
