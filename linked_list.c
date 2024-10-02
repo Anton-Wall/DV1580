@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
-
+#include <linked_list.h>
 /*########################################*/
 /*#             Assingment 1             #*/
 /*########################################*/
