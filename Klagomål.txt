@@ -1,0 +1,9 @@
+Assignments:
+Varför fick vi testprogramen två dagar innan inlämning? varför ska vi hitta buggar i ert program? Varför fick vi inte dem när vi fick uppgiften?
+Gällande testerna fick vi inte några fungerande tester två dagar innan.
+Dessutom behöver vi använda headerfiler för att lösa assignmet 1 men vi gick inte igenom vad det var för något förens veckan efter det att den utsprungliga deadlinen för inlämningen var.
+Hade inte inlämningen blivit förskjuten hade det varit helt omöjligt att få uppgiften gjort. 
+
+Förläsningar:
+Föreläsningarna går inte igenom saker som är relevant till att klara  uppgifterna. Jag har inte någon C programering i ryggen alls och detta har gjort programerings uppgifterna 
+betydligt svårare. Rent datavetenskapligt är det relevant infromation men föreläsningarna och var vi förväntas vara i uppgifterna går inte ihopa.
