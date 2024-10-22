@@ -2,7 +2,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
-#include <linked_list.h>
+
+
 /*########################################*/
 /*#             Assingment 1             #*/
 /*########################################*/
@@ -14,10 +15,12 @@ typedef struct Block {
     struct Block* next; // pointer to the next block
 } Block;
 
-static unsigned char* memory_pool[]; //memorypool
+#define POOL_SIZE 1024
+static unsigned char* memory_pool[POOL_SIZE]; //memorypool
 static Block* free_list  = NULL;  // first free block
 
 void mem_init(size_t size) {
+    free_list = (Block*)memory_pool;
     free_list->size = size - sizeof(Block);
     free_list->free = 1;
     free_list->next = NULL;
@@ -56,18 +59,22 @@ void mem_free(void* block) {
     }
     
     // Get the block header from the pointer
-    Block* block = (Block*)block - 1;
-    block->free = 1; // Mark the block as free
+    Block* header = (Block*)block - 1;
+    header->free = 1; // Mark the block as free
     
     // Coalesce adjacent free blocks
     Block* curr = free_list;
     while (curr != NULL && curr->next != NULL) {
-        if (curr->free && curr->next->free) {
+        
+        Block* next = curr->next;
+        
+        if (curr->free && next && next->free && 
+            (char*)curr + curr->size + sizeof(Block) == (char*)next) {
             // Merge current and next block
-            curr->size += curr->next->size + sizeof(Block);
-            curr->next = curr->next->next;
-        }
+            curr->size += next->size + sizeof(Block);
+            curr->next = next->next; // Bypass the next block
         curr = curr->next;
+        }
     }
 }
 
