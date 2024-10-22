@@ -103,5 +103,4 @@ void main(){
     if (p1) {
         printf("Allocated 100 bytes at %p\n", p1);
     };
-    return 0;
-};
+}
