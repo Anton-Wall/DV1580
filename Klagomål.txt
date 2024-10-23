@@ -10,3 +10,5 @@ Det hade varit bra att få i instruktionerna vad vi skulle döpa våra filer til
 Förläsningar:
 Föreläsningarna går inte igenom saker som är relevant till att klara  uppgifterna. Jag har inte någon C programering i ryggen alls och detta har gjort programerings uppgifterna 
 betydligt svårare. Rent datavetenskapligt är det relevant infromation men föreläsningarna och var vi förväntas vara i uppgifterna går inte ihopa.
+
+Assignment 1 kräver att vi inte använder Malloc men testerna i codegrade funkar inte om vi inte använder malloc

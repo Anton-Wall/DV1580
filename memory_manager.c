@@ -95,7 +95,7 @@ void mem_deinit() { //remove the memory pool
     free_list->next = NULL;
 }
 
-int main(){
+void main(){
     mem_init(1024);
     
     // Example usage
