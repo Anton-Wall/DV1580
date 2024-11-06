@@ -14,7 +14,8 @@ typedef struct Block {
     struct Block* next; // pointer to the next block
 } Block;
 
-static unsigned char* memory_pool[]; //memorypool
+#define POOL_SIZE 1024
+static unsigned char* memory_pool[POOL_SIZE]; //memorypool
 static Block* free_list  = NULL;  // first free block
 
 void mem_init(size_t size);

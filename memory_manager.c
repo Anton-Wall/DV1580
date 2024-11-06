@@ -15,11 +15,12 @@ typedef struct Block {
     struct Block* next; // pointer to the next block
 } Block;
 
-#define POOL_SIZE 1024
-static unsigned char* memory_pool[POOL_SIZE]; //memorypool
+void* memory_pool = NULL; //memorypool
 static Block* free_list  = NULL;  // first free block
 
 void mem_init(size_t size) {
+    memory_pool = (unsigned char*)malloc(size); 
+    
     free_list = (Block*)memory_pool;
     free_list->size = size - sizeof(Block);
     free_list->free = 1;
@@ -50,7 +51,7 @@ void* mem_alloc(size_t size) {
     }
     printf("No suitable block found.\n"); //if no block found
     return NULL;
-};
+}
 
 void mem_free(void* block) {
     if (block == NULL) {
@@ -93,15 +94,4 @@ void mem_deinit() { //remove the memory pool
     free_list->size = sizeof(Block);
     free_list->free = 1;
     free_list->next = NULL;
-}
-
-int main(){
-    mem_init(1024);
-    
-    // Example usage
-    void* p1 = mem_alloc(100);
-    if (p1) {
-        printf("Allocated 100 bytes at %p\n", p1);
-        };
-    return 0;
 }
